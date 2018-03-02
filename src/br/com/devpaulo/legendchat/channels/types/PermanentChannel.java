@@ -19,9 +19,12 @@ public class PermanentChannel implements Channel {
 	private double distance = 0;
 	private boolean crossworlds = false;
 	private double cost = 0;
+        private double costVip = 0;
+        private double costMvp = 0;
+        private double costMvpPlus = 0;
 	private boolean show_cost_msg = false;
 	private int delay = 0;
-	public PermanentChannel(String name, String nick, String format, String color, boolean shortcut, boolean focus, double distance, boolean crossworlds, int delay, double cost,boolean show_cost_msg) {
+	public PermanentChannel(String name, String nick, String format, String color, boolean shortcut, boolean focus, double distance, boolean crossworlds, int delay, double cost, double costVip, double costMvp, double costMvpPlus,boolean show_cost_msg) {
 		this.name=name;
 		this.nick=nick;
 		this.format=format;
@@ -32,6 +35,9 @@ public class PermanentChannel implements Channel {
 		this.distance=distance;
 		this.crossworlds=crossworlds;
 		this.cost=cost;
+                this.costVip = costVip;
+                this.costMvp = costMvp;
+                this.costMvpPlus = costMvpPlus;
 		this.show_cost_msg=show_cost_msg;
 		this.delay=delay;
 	}
@@ -87,6 +93,18 @@ public class PermanentChannel implements Channel {
 	}
         @Override
 	public double getCostPerMessage() {
+		return cost;
+	}
+	@Override
+	public double getCostPerMessageVip() {
+		return cost;
+	}
+	@Override
+	public double getCostPerMessageMvp() {
+		return cost;
+	}
+	@Override
+	public double getCostPerMessageMvpPlus() {
 		return cost;
 	}
 	

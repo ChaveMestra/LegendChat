@@ -24,9 +24,12 @@ public class BungeecordChannel implements Channel {
 	private double distance = 0;
 	private boolean crossworlds = false;
 	private double cost = 0;
+        private double costVip = 0;
+        private double costMvp = 0;
+        private double costMvpPlus = 0;
 	private boolean show_cost_msg = false;
 	private int delay = 0;
-	public BungeecordChannel(String name, String nick, String format, String color, boolean shortcut, boolean focus, double distance, boolean crossworlds, int delay, double cost,boolean show_cost_msg) {
+	public BungeecordChannel(String name, String nick, String format, String color, boolean shortcut, boolean focus, double distance, boolean crossworlds, int delay, double cost, double costVip, double costMvp, double costMvpPlus,boolean show_cost_msg) {
 		this.name=name;
 		this.nick=nick;
 		this.format=format;
@@ -37,6 +40,9 @@ public class BungeecordChannel implements Channel {
 		this.distance=distance;
 		this.crossworlds=crossworlds;
 		this.cost=cost;
+                this.costVip = costVip;
+                this.costMvpPlus = costMvpPlus;
+                this.costMvp = costMvp;
 		this.show_cost_msg=show_cost_msg;
 		this.delay=delay;
 	}
@@ -81,6 +87,15 @@ public class BungeecordChannel implements Channel {
 		return cost;
 	}
 	public double getCostPerMessage() {
+		return cost;
+	}
+        public double getCostPerMessageVip() {
+		return cost;
+	}
+        public double getCostPerMessageMvp() {
+		return cost;
+	}
+        public double getCostPerMessageMvpPlus() {
 		return cost;
 	}
 	

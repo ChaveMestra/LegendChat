@@ -7,6 +7,9 @@ distance: 0.0
 crossworlds: true
 delayPerMessage: 0
 costPerMessage: 0.0
+costPerMessageVip: 0.0
+costPerMessageMvp: 0.0
+costPerMessageMvpPlus: 0.0
 showCostMessage: true
 maxChannelNameLength: 15
 maxChannelNicknameLength: 5

@@ -17,6 +17,21 @@ public class TemporaryChannelConfig {
 	private double distance = 0;
 	private boolean crossworlds = false;
 	private double cost = 0;
+        private double costVip = 0;
+        private double costMvp = 0;
+        private double costMvpPlus = 0;
+
+    public double getCostVip() {
+        return costVip;
+    }
+
+    public double getCostMvp() {
+        return costMvp;
+    }
+
+    public double getCostMvpPlus() {
+        return costMvpPlus;
+    }
 	private boolean show_cost_msg = false;
 	private int delay = 0;
 	private int max_joins = 0;
@@ -131,6 +146,9 @@ public class TemporaryChannelConfig {
 		distance=c.getDouble("distance");
 		crossworlds=c.getBoolean("crossworlds");
 		cost=c.getDouble("costPerMessage");
+                costVip = c.getDouble("costPerMessageVip");
+                costMvp = c.getDouble("costPerMessageMvp");
+                costMvpPlus = c.getDouble("costPerMessageMvpPlus");
 		show_cost_msg=c.getBoolean("showCostMessage");
 		delay=c.getInt("delayPerMessage");
 		max_joins=c.getInt("maxJoinsPerPlayer");

@@ -20,6 +20,9 @@ public final class TemporaryChannel implements Channel {
 	private double distance = 0;
 	private boolean crossworlds = false;
 	private double cost = 0;
+        private double costVip = 0;
+        private double costMvp = 0;
+        private double costMvpPlus = 0;
 	private boolean show_cost_msg = false;
 	private int delay = 0;
 	private Player leader = null;
@@ -28,7 +31,7 @@ public final class TemporaryChannel implements Channel {
 	private boolean mod_can_kick = false;
 	private boolean mod_can_invite = false;
 	private final List<Player> invites = new ArrayList<>();
-	public TemporaryChannel(String name, String nick, String format, String color, boolean shortcut, boolean focus, double distance, boolean crossworlds, int delay, double cost,boolean show_cost_msg,Player leader,boolean mod_can_kick,boolean mod_can_invite) {
+	public TemporaryChannel(String name, String nick, String format, String color, boolean shortcut, boolean focus, double distance, boolean crossworlds, int delay, double cost, double costVip, double costMvp, double costMvpPlus,boolean show_cost_msg,Player leader,boolean mod_can_kick,boolean mod_can_invite) {
 		this.name=name;
 		this.nick=nick;
 		this.format=format;
@@ -39,6 +42,9 @@ public final class TemporaryChannel implements Channel {
 		this.distance=distance;
 		this.crossworlds=crossworlds;
 		this.cost=cost;
+                this.costVip = costVip;
+                this.costMvp = costMvp;
+                this.costMvpPlus = costMvpPlus;
 		this.show_cost_msg=show_cost_msg;
 		this.delay=delay;
 		this.mod_can_kick=mod_can_kick;
@@ -103,6 +109,18 @@ public final class TemporaryChannel implements Channel {
         @Override
 	public double getCostPerMessage() {
 		return cost;
+	}
+        @Override
+	public double getCostPerMessageVip() {
+		return costVip;
+	}
+        @Override
+	public double getCostPerMessageMvp() {
+		return costMvp;
+	}
+        @Override
+	public double getCostPerMessageMvpPlus() {
+		return costMvpPlus;
 	}
 	
         @Override
