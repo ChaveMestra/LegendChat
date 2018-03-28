@@ -902,7 +902,7 @@ public class Commands implements CommandExecutor {
 							return true;
 						}
 						sender.sendMessage(Legendchat.getMessageManager().getMessage("message3").replace("@channel", args[2]));
-						Legendchat.getChannelManager().createPermanentChannel(new PermanentChannel(WordUtils.capitalizeFully(args[2]),Character.toString(args[2].charAt(0)).toLowerCase(),"{default}","GRAY",true,false,0,true,0,0,0,0,0,false));
+						Legendchat.getChannelManager().createPermanentChannel(new PermanentChannel(WordUtils.capitalizeFully(args[2]),Character.toString(args[2].charAt(0)).toLowerCase(),"{default}","GRAY",true,false,0,true,0,0,0,0,0,0,0,0,false));
 					}
 					else if(args[1].equalsIgnoreCase("delete")) {
 						Channel c = Legendchat.getChannelManager().getChannelByName(args[2].toLowerCase());

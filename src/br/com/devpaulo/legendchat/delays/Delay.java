@@ -9,6 +9,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 import br.com.devpaulo.legendchat.api.Legendchat;
 import br.com.devpaulo.legendchat.channels.types.Channel;
+import org.bukkit.entity.Player;
 
 public class Delay {
 	private String name = "";
@@ -18,9 +19,19 @@ public class Delay {
 		this.name=name.toLowerCase();
 	}
 	
-	public void addDelay(final Channel c) {
+	public void addDelay(Player p ,final Channel c) {
 		removeDelay(c);
-		delays.put(c, c.getDelayPerMessage());
+                int delay = c.getDelayPerMessage();
+                if (p.hasPermission("legendchat.vip")) {
+                    delay = c.getDelayPerMessageVip();
+                }
+                if (p.hasPermission("legendchat.mvp")) {
+                    delay = c.getDelayPerMessageMvp();
+                }
+                if (p.hasPermission("legendchat.mvp+")) {
+                    delay = c.getDelayPerMessageMvpPlus();
+                }
+		delays.put(c, delay);
 		timers.put(c, Bukkit.getScheduler().runTaskTimer(Bukkit.getPluginManager().getPlugin("Legendchat"), new Runnable() {
                         @Override
 			public void run() {

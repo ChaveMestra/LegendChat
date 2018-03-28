@@ -42,6 +42,9 @@ public class ChannelManager {
 			channel2.set("distance", c.getMaxDistance());
 			channel2.set("crossworlds", c.isCrossworlds());
 			channel2.set("delayPerMessage", c.getDelayPerMessage());
+                        channel2.set("delayPerMessageVip", c.getDelayPerMessageVip());
+                        channel2.set("delayPerMessageMvp", c.getDelayPerMessageMvp());
+                        channel2.set("delayPerMessageMvpPlus", c.getDelayPerMessageMvpPlus());
 			channel2.set("costPerMessage", c.getCostPerMessage());
                         channel2.set("costPerMessageVip", c.getCostPerMessageVip());
                         channel2.set("costPerMessageMvp", c.getCostPerMessageMvp());
@@ -115,9 +118,9 @@ public class ChannelManager {
 	private void loadChannel(File channel, String bungee) {
 		YamlConfiguration channel2 = YamlConfiguration.loadConfiguration(channel);
 		if(channel2.getString("name").toLowerCase().equals(bungee.toLowerCase()))
-			createPermanentChannel(new BungeecordChannel(channel2.getString("name"),channel2.getString("nickname"),channel2.getString("format"),channel2.getString("color"),channel2.getBoolean("shortcutAllowed"),channel2.getBoolean("needFocus"),channel2.getDouble("distance"),channel2.getBoolean("crossworlds"),channel2.getInt("delayPerMessage"),channel2.getDouble("costPerMessage"),channel2.getDouble("costPerMessageVip"),channel2.getDouble("costPerMessageMvp"),channel2.getDouble("costPerMessageMvpPlus"),channel2.getBoolean("showCostMessage")));
+			createPermanentChannel(new BungeecordChannel(channel2.getString("name"),channel2.getString("nickname"),channel2.getString("format"),channel2.getString("color"),channel2.getBoolean("shortcutAllowed"),channel2.getBoolean("needFocus"),channel2.getDouble("distance"),channel2.getBoolean("crossworlds"),channel2.getInt("delayPerMessage"),channel2.getInt("delayPerMessageVip"),channel2.getInt("delayPerMessageMvp"),channel2.getInt("delayPerMessageMvpPlus"),channel2.getDouble("costPerMessage"),channel2.getDouble("costPerMessageVip"),channel2.getDouble("costPerMessageMvp"),channel2.getDouble("costPerMessageMvpPlus"),channel2.getBoolean("showCostMessage")));
 		else
-			createPermanentChannel(new PermanentChannel(channel2.getString("name"),channel2.getString("nickname"),channel2.getString("format"),channel2.getString("color"),channel2.getBoolean("shortcutAllowed"),channel2.getBoolean("needFocus"),channel2.getDouble("distance"),channel2.getBoolean("crossworlds"),channel2.getInt("delayPerMessage"),channel2.getDouble("costPerMessage"),channel2.getDouble("costPerMessageVip"),channel2.getDouble("costPerMessageMvp"),channel2.getDouble("costPerMessageMvpPlus"),channel2.getBoolean("showCostMessage")));
+			createPermanentChannel(new PermanentChannel(channel2.getString("name"),channel2.getString("nickname"),channel2.getString("format"),channel2.getString("color"),channel2.getBoolean("shortcutAllowed"),channel2.getBoolean("needFocus"),channel2.getDouble("distance"),channel2.getBoolean("crossworlds"),channel2.getInt("delayPerMessage"),channel2.getInt("delayPerMessageVip"),channel2.getInt("delayPerMessageMvp"),channel2.getInt("delayPerMessageMvpPlus"),channel2.getDouble("costPerMessage"),channel2.getDouble("costPerMessageVip"),channel2.getDouble("costPerMessageMvp"),channel2.getDouble("costPerMessageMvpPlus"),channel2.getBoolean("showCostMessage")));
 	}
 	
 }

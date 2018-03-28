@@ -46,7 +46,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getServer().getPluginCommand("legendchat").setExecutor(new Commands());
         getServer().getPluginCommand("channel").setExecutor(new Commands());
         //getServer().getPluginCommand("tell").setExecutor(new Commands());
-       // getServer().getPluginCommand("reply").setExecutor(new Commands());
+        // getServer().getPluginCommand("reply").setExecutor(new Commands());
         getServer().getPluginCommand("afk").setExecutor(new Commands());
         getServer().getPluginCommand("ignore").setExecutor(new Commands());
         getServer().getPluginCommand("tempchannel").setExecutor(new Commands());
@@ -141,9 +141,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         File channels = new File(getDataFolder(), "channels");
         if (!channels.exists()) {
             channels.mkdir();
-            Legendchat.getChannelManager().createPermanentChannel(new PermanentChannel("global", "g", "{default}", "GRAY", true, false, 0, true, 0, 0, 0, 0, 0, true));
-            Legendchat.getChannelManager().createPermanentChannel(new PermanentChannel("local", "l", "{default}", "YELLOW", true, false, 60, false, 0, 0, 0, 0, 0, true));
-            Legendchat.getChannelManager().createPermanentChannel(new BungeecordChannel("bungeecord", "b", "{bungeecord}", "LIGHTPURPLE", true, false, 0, false, 0, 0, 0, 0, 0, true));
+            Legendchat.getChannelManager().createPermanentChannel(new PermanentChannel("global", "g", "{default}", "GRAY", true, false, 0, true, 0, 0, 0, 0, 0, 0, 0, 0, true));
+            Legendchat.getChannelManager().createPermanentChannel(new PermanentChannel("local", "l", "{default}", "YELLOW", true, false, 60, false, 0, 0, 0, 0, 0, 0, 0, 0, true));
+            Legendchat.getChannelManager().createPermanentChannel(new BungeecordChannel("bungeecord", "b", "{bungeecord}", "LIGHTPURPLE", true, false, 0, false, 0, 0, 0, 0, 0, 0, 0, 0, true));
         }
 
         if (new Updater().updateChannels()) {

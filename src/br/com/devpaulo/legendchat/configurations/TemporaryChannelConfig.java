@@ -34,6 +34,21 @@ public class TemporaryChannelConfig {
     }
 	private boolean show_cost_msg = false;
 	private int delay = 0;
+        private int delayVip = 0;
+        private int delayMvp = 0;
+        private int delayMvpPlus = 0;
+
+    public int getDelayPerMessageVip() {
+        return delayVip;
+    }
+
+    public int getDelayPerMessageMvp() {
+        return delayMvp;
+    }
+
+    public int getDelayPerMessageMvpPlus() {
+        return delayMvpPlus;
+    }
 	private int max_joins = 0;
 	private int max_admin = 0;
 	private int max_joins_c = 0;
@@ -151,6 +166,9 @@ public class TemporaryChannelConfig {
                 costMvpPlus = c.getDouble("costPerMessageMvpPlus");
 		show_cost_msg=c.getBoolean("showCostMessage");
 		delay=c.getInt("delayPerMessage");
+                delayVip=c.getInt("delayPerMessageVip");
+                delayMvp=c.getInt("delayPerMessageMvp");
+                delayMvpPlus=c.getInt("delayPerMessageMvpPlus");
 		max_joins=c.getInt("maxJoinsPerPlayer");
 		max_admin=c.getInt("maxAdminPerPlayer");
 		max_joins_c=c.getInt("maxJoinsPerChannel");

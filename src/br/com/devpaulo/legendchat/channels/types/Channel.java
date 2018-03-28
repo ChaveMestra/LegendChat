@@ -39,6 +39,12 @@ public interface Channel {
 
     public int getDelayPerMessage();
 
+    public int getDelayPerMessageVip();
+
+    public int getDelayPerMessageMvp();
+
+    public int getDelayPerMessageMvpPlus();
+
     public List<Player> getPlayersFocusedInChannel();
 
     public List<Player> getPlayersWhoCanSeeChannel();

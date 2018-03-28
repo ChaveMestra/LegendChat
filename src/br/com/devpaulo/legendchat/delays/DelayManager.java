@@ -3,21 +3,22 @@ package br.com.devpaulo.legendchat.delays;
 import java.util.HashMap;
 
 import br.com.devpaulo.legendchat.channels.types.Channel;
+import org.bukkit.entity.Player;
 
 public class DelayManager {
 	private final HashMap<String,Delay> delays = new HashMap<>();
 	public DelayManager() {
 	}
 	
-	public void addPlayerDelay(String name, Channel c) {
-		name = name.toLowerCase();
+	public void addPlayerDelay(Player p, Channel c) {
+		String name = p.getName().toLowerCase();
 		if(hasPlayerDelay(name)) {
-			getPlayerDelay(name).addDelay(c);
+			getPlayerDelay(name).addDelay(p,c);
 		}
 		else {
 			Delay d = new Delay(name);
 			delays.put(name, d);
-			d.addDelay(c);
+			d.addDelay(p,c);
 		}
 	}
 	

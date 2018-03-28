@@ -71,7 +71,7 @@ public class ChannelUtils {
                 return;
             }
         }
-        if (sender.getStatistic(Statistic.PLAY_ONE_TICK) / 20 / 60 / 60 < 1 && !sender.hasPermission("rocket.staff")) {
+        if (sender.getStatistic(Statistic.PLAY_ONE_TICK) / 20 / 60 / 60 < 1 && !sender.hasPermission("rocket.staff") && c.getMaxDistance() == 0) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cVoce precisa de 1h de jogo para enviar mensagens no chat! &aDúvidas? &e/ajuda /duvida"));
             return;
         }
@@ -156,16 +156,20 @@ public class ChannelUtils {
             }
         }
         boolean gastou = false;
+        double custo = 0;
         if (!Main.block_econ && c.getMessageCost() > 0) {
-            double custo = c.getCostPerMessage();
+            custo = c.getCostPerMessage();
             if (sender.hasPermission("legendchat.vip")) {
                 custo = c.getCostPerMessageVip();
+                System.out.println("Custo VIP: "+custo);
             }
             if (sender.hasPermission("legendchat.mvp")) {
                 custo = c.getCostPerMessageMvp();
+                 System.out.println("Custo MVP: "+custo);
             }
             if (sender.hasPermission("legendchat.mvp+")) {
                 custo = c.getCostPerMessageMvpPlus();
+                 System.out.println("Custo MVP+: "+custo);
             }
             if (sender.hasPermission("global.free")) {
                 custo = 0;
@@ -280,15 +284,15 @@ public class ChannelUtils {
         for (String n : e.getTags()) {
             completa = completa.replace("{" + n + "}", ChatColor.translateAlternateColorCodes('&', e.getTagValue(n)));
         }
-        PlaceholderAPI.setPlaceholders(sender, message);
+        
         completa = completa.replace("{msg}", translateAlternateChatColorsWithPermission(sender, message));
-
+        completa = PlaceholderAPI.setPlaceholders(sender, completa);
         for (Player p : e.getRecipients()) {
             p.sendMessage(completa);
         }
 
-        if (c.getDelayPerMessage() > 0 && !sender.hasPermission("legendchat.channel." + c.getName().toLowerCase() + ".nodelay") && !sender.hasPermission("legendchat.admin")) {
-            Legendchat.getDelayManager().addPlayerDelay(sender.getName(), c);
+        if (c.getDelayPerMessage() > 0 && !sender.hasPermission("legendchat.channel." + c.getName().toLowerCase() + ".nodelay") && !sender.hasPermission("legendchat.admin")) {  
+            Legendchat.getDelayManager().addPlayerDelay(sender, c);
         }
 
         if (c.getMaxDistance() != 0) {
@@ -321,7 +325,7 @@ public class ChannelUtils {
 
         if (gastou) {
             if (c.showCostMessage()) {
-                sender.sendMessage(Legendchat.getMessageManager().getMessage("message9").replace("@money", Double.toString(c.getCostPerMessage())));
+                sender.sendMessage(Legendchat.getMessageManager().getMessage("message9").replace("@money", Double.toString(custo)));
             }
         }
 

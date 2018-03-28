@@ -6,6 +6,9 @@ needFocus: false
 distance: 0.0
 crossworlds: true
 delayPerMessage: 0
+delayPerMessageVip: 0
+delayPerMessageMvp: 0
+delayPerMessageMvpPlus: 0
 costPerMessage: 0.0
 costPerMessageVip: 0.0
 costPerMessageMvp: 0.0
